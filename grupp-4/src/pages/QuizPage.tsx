@@ -1,11 +1,13 @@
 import { useState } from "react";
 import type { Question } from "../types/quiz";
 
+
 type Props = {
   questions: Question[];
+  onFinish: (score: number) => void;
 };
 
-export function QuizPage({ questions }: Props) {
+export function QuizPage({ questions, onFinish }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedOptionId, setSelectedOptionId] = useState<string | null>(null);
   const [isLocked, setIsLocked] = useState(false);
@@ -32,7 +34,7 @@ export function QuizPage({ questions }: Props) {
     if (nextIndex < questions.length) {
       setCurrentIndex(nextIndex);
     } else {
-      alert(`Quiz klart! Du fick ${score} av ${questions.length} rätt.`);
+    onFinish(score);
     }
   }
 

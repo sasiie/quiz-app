@@ -2,14 +2,41 @@ import { StartPage } from "./pages/StartPage";
 import { useState } from "react";
 import { QuizPage } from "./pages/QuizPage";
 import { questions } from "./data/questions";
+import { ResultatPage } from "./pages/ResultatPage";
+
+type View = "start" | "quiz" | "result";
 
 function App() {
- const [started, setStarted] = useState(false);
+ const [view, setView] = useState<View>("start");
+ const [finalscore, setFinalscore] = useState(0);
+
+ function startQuiz() {
+  setFinalscore(0);
+  setView("quiz");
+ }
+
+ function finishQuiz(score: number) {
+  setFinalscore(score);
+  setView("result");
+ }
+
+ function restartQuiz() {
+  setView("start");
+ }
 
   return (
     <div>
-      {!started && <StartPage onStart={() => setStarted(true)} />}
-        {started && <QuizPage questions={questions} />}
+    {view === "start" && <StartPage onStart={startQuiz} />}
+    {view === "quiz" && (
+      <QuizPage questions={questions} onFinish={finishQuiz} />
+    )}
+    {view === "result" && (
+      <ResultatPage
+      score={finalscore}
+      total={questions.length}
+      onRestart={restartQuiz}
+      />
+    )}
     </div>
   );
 }
