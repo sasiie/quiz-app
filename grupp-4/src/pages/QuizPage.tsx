@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { Question } from "../types/quiz";
+import { getHighscore, setHighscore } from "../data/storage";
 
 type Props = {
   questions: Question[];
@@ -33,6 +34,10 @@ export function QuizPage({ questions, onFinish }: Props) {
     if (nextIndex < questions.length) {
       setCurrentIndex(nextIndex);
     } else {
+      const prevHighscore = getHighscore();
+      if (score > prevHighscore) {
+        setHighscore(score);
+      }
       onFinish(score);
     }
   }
