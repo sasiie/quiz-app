@@ -38,7 +38,13 @@ export function QuizPage({ questions }: Props) {
 
   return (
     <main style={{ padding: 16, maxWidth: 520, margin: "0 auto" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 12 }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          marginBottom: 12,
+        }}
+      >
         <span style={{ opacity: 0.8 }}>
           Fråga {currentIndex + 1} av {questions.length}
         </span>
@@ -55,7 +61,8 @@ export function QuizPage({ questions }: Props) {
           let border = "1px solid #555";
           if (isSelected) border = "2px solid white";
           if (isLocked && isCorrectOption) border = "2px solid lime";
-          if (isLocked && isSelected && !isCorrectOption) border = "2px solid red";
+          if (isLocked && isSelected && !isCorrectOption)
+            border = "2px solid red";
 
           return (
             <li key={option.id}>
@@ -69,7 +76,8 @@ export function QuizPage({ questions }: Props) {
                   borderRadius: 12,
                   border,
                   textAlign: "left",
-                  opacity: isLocked && !isSelected && !isCorrectOption ? 0.85 : 1,
+                  opacity:
+                    isLocked && !isSelected && !isCorrectOption ? 0.85 : 1,
                 }}
               >
                 {option.text}
