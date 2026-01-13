@@ -55,6 +55,7 @@ export function QuizPage({ questions, onFinish }: Props) {
           Fråga {currentIndex + 1} av {questions.length}
         </span>
         <span style={{ opacity: 0.8 }}>Poäng: {score}</span>
+ 
       </div>
 
       <h2 style={{ marginTop: 0 }}>{currentQuestion.question}</h2>
