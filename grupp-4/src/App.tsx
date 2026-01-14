@@ -4,14 +4,12 @@ import { QuizPage } from "./pages/QuizPage";
 import { questions } from "./data/questions";
 import { ResultatPage } from "./pages/ResultatPage";
 import { quizes } from "./data/questions"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-type View = "start" | "quiz" | "result";
+
 
 function App() {
- const [view, setView] = useState<View>("start");
- const []
- const [finalscore, setFinalscore] = useState(0);
-
+ const [ finalscore, setFinalscore ] = useState(0);
  function startQuiz() {
   setFinalscore(0);
   setView("quiz");

@@ -1,5 +1,4 @@
 
-
 export type AnserOption = {
 
     id: string;

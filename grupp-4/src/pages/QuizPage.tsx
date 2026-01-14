@@ -14,7 +14,7 @@ export function QuizPage({ questions, onFinish }: Props) {
   const [score, setScore] = useState(0);
 
   const currentQuestion = questions[currentIndex];
-
+  
   function lockAnswer() {
     if (!selectedOptionId || isLocked) return;
 

@@ -3,7 +3,7 @@ import { getHighscore } from "../data/storage";
 type Props = {
     score: number,
     total: number,
-    onRestart: () => void;
+    onRestart: () => void,
 };
 
 export function ResultatPage({ score, total, onRestart }: Props) {
