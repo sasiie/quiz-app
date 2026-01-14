@@ -1,20 +1,24 @@
 // Här är startsidan
-
+import { useNavigate } from "react-router-dom";
 import type { QuizCategory } from "../data/questions";
 
 type Props = {
     quizes: QuizCategory[];
-    onSelectQuiz: (quiz: QuizCategory) => void;
 };
 
-export function StartPage({ quizes, onSelectQuiz }: Props) {
+export function StartPage({ quizes }: Props) {
+    const navigate = useNavigate();
+    const handleSelectQuiz = (quiz: QuizCategory) => {
+        navigate(`/quiz/${quiz.id}`);
+    };
+
     return (
         <main style={{ padding: 16, maxWidth: 520, margin: "0 auto" }}>
             <h1> Välj quiz</h1>
             <ul style={{ listStyle: "none", padding: 0, display: "grid", gap: 12 }}>
                 {quizes.map((quiz) =>  (
                 <li key={quiz.id}>
-                    <button onClick={() => onSelectQuiz(quiz)}
+                    <button onClick={() => handleSelectQuiz(quiz)}
                     style={{
                         width: "100%",
                         padding: 16,
@@ -23,7 +27,8 @@ export function StartPage({ quizes, onSelectQuiz }: Props) {
                     }}>
                         {quiz.title}
                     </button>
-                </li>))}
+                </li>
+            ))}
             </ul>
            
         </main>

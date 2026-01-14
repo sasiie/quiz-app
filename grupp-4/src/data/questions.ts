@@ -2,13 +2,14 @@
 
 import type { Question } from "../types/quiz";
 
+
 export type QuizCategory = {
   id: string;
   title: string;
   questions: Question[];
 };
 
-export const quizes: QuizCategory[] = [
+export const questions: QuizCategory[] = [
   {
     id: "Matte",
     title: "Mattematik",
