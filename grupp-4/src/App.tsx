@@ -3,11 +3,13 @@ import { useState } from "react";
 import { QuizPage } from "./pages/QuizPage";
 import { questions } from "./data/questions";
 import { ResultatPage } from "./pages/ResultatPage";
+import { quizes } from "./data/questions"
 
 type View = "start" | "quiz" | "result";
 
 function App() {
  const [view, setView] = useState<View>("start");
+ const []
  const [finalscore, setFinalscore] = useState(0);
 
  function startQuiz() {
