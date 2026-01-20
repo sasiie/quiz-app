@@ -33,7 +33,7 @@ function App() {
               total={questions.length}
               onRestart={() => {
                 setFinalScore(0);
-                window.location.href = "/"; 
+                window.location.href = "/"; //Vi bör använda const useNavigate
               }}
             />
           }
