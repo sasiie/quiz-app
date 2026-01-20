@@ -1,43 +1,45 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { StartPage } from "./pages/StartPage";
-import { useState } from "react";
 import { QuizPage } from "./pages/QuizPage";
-import { questions } from "./data/questions";
 import { ResultatPage } from "./pages/ResultatPage";
-
-type View = "start" | "quiz" | "result";
+import { questions } from "./data/questions";
+import { useState } from "react";
 
 function App() {
- const [view, setView] = useState<View>("start");
- const [finalscore, setFinalscore] = useState(0);
-
- function startQuiz() {
-  setFinalscore(0);
-  setView("quiz");
- }
-
- function finishQuiz(score: number) {
-  setFinalscore(score);
-  setView("result");
- }
-
- function restartQuiz() {
-  setView("start");
- }
+  const [finalScore, setFinalScore] = useState(0);
 
   return (
-    <div>
-    {view === "start" && <StartPage onStart={startQuiz} />}
-    {view === "quiz" && (
-      <QuizPage questions={questions} onFinish={finishQuiz} />
-    )}
-    {view === "result" && (
-      <ResultatPage
-      score={finalscore}
-      total={questions.length}
-      onRestart={restartQuiz}
-      />
-    )}
-    </div>
+    <BrowserRouter>
+      <Routes>
+
+        <Route path="/" element={<StartPage quizes={questions} />} />
+
+
+        <Route
+          path="/quiz/:quizId"
+          element={
+            <QuizPage
+              onFinish={(score) => setFinalScore(score)}
+            />
+          }
+        />
+
+
+        <Route
+          path="/result"
+          element={
+            <ResultatPage
+              score={finalScore}
+              total={questions.length}
+              onRestart={() => {
+                setFinalScore(0);
+                window.location.href = "/"; //Vi bör använda const useNavigate
+              }}
+            />
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

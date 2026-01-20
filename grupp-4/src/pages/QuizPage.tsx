@@ -1,20 +1,31 @@
 import { useState } from "react";
 import type { Question } from "../types/quiz";
+import type { QuizCategory } from "../data/questions";
 import { getHighscore, setHighscore } from "../data/storage";
+//import { questions as allQuestions } from "../data/questions";
+import { useParams, useNavigate } from "react-router-dom";
+import { questions as allQuizzes } from "../data/questions";
 
 type Props = {
-  questions: Question[];
+ // questions: Question[];
   onFinish: (score: number) => void;
 };
 
-export function QuizPage({ questions, onFinish }: Props) {
+export function QuizPage({ onFinish }: Props) {
+  const { quizId } = useParams<{ quizId: string }>();
+  const navigate = useNavigate();
+
+  const quiz: QuizCategory | undefined = allQuizzes.find((q) => q.id === quizId);
+  if (!quiz) return <p>Quizet kunde inte hittas</p>;
+
+  const questions: Question[] = quiz.questions;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedOptionId, setSelectedOptionId] = useState<string | null>(null);
   const [isLocked, setIsLocked] = useState(false);
   const [score, setScore] = useState(0);
 
   const currentQuestion = questions[currentIndex];
-
+  
   function lockAnswer() {
     if (!selectedOptionId || isLocked) return;
 
@@ -35,10 +46,10 @@ export function QuizPage({ questions, onFinish }: Props) {
       setCurrentIndex(nextIndex);
     } else {
       const prevHighscore = getHighscore();
-      if (score > prevHighscore) {
+      if (score > prevHighscore) 
         setHighscore(score);
-      }
       onFinish(score);
+      navigate("/result");
     }
   }
 
