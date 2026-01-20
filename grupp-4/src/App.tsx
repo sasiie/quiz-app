@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useNavigate, Routes, Route } from "react-router-dom";
 import { StartPage } from "./pages/StartPage";
 import { QuizPage } from "./pages/QuizPage";
 import { ResultatPage } from "./pages/ResultatPage";
@@ -7,9 +7,9 @@ import { useState } from "react";
 
 function App() {
   const [finalScore, setFinalScore] = useState(0);
+  const navigate = useNavigate();
 
   return (
-    <BrowserRouter>
       <Routes>
 
         <Route path="/" element={<StartPage quizes={questions} />} />
@@ -33,13 +33,13 @@ function App() {
               total={questions.length}
               onRestart={() => {
                 setFinalScore(0);
-                window.location.href = "/"; //Vi bör använda const useNavigate
+                navigate("/");
               }}
             />
           }
         />
       </Routes>
-    </BrowserRouter>
+ 
   );
 }
 
