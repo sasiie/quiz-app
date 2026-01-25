@@ -2,7 +2,6 @@ import { useState } from "react";
 import type { Question } from "../types/quiz";
 import type { QuizCategory } from "../data/questions";
 import { getHighscore, setHighscore } from "../data/storage";
-//import { questions as allQuestions } from "../data/questions";
 import { useParams, useNavigate } from "react-router-dom";
 import { questions as allQuizzes } from "../data/questions";
 
