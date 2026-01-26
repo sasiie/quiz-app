@@ -7,14 +7,14 @@ type Props = {
 };
 
 export function StartPage({ onStart }: Props) {
-  // 👇 useEffect ska ligga INUTI funktionen
+  //  useEffect ska ligga INUTI funktionen
   useEffect(() => {
     fetchQuestions().then((data) => {
       console.log("QUIZ DATA:", data);
     });
   }, []);
 
-  // 👇 return kommer efter useEffect
+  // return kommer efter useEffect
   return (
     <div className="screen">
       <div className="phone">
