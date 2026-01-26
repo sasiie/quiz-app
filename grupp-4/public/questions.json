@@ -1,0 +1,108 @@
+{
+  "categories": [
+    {
+      "id": "history",
+      "title": "Svensk historia",
+      "questions": [
+        {
+          "id": 1,
+          "text": "Vilket år blev Sverige medlem i EU?",
+          "answers": ["1990", "1995", "2001"],
+          "correct": 1
+        },
+        {
+          "id": 2,
+          "text": "Vem var Sveriges första kung?",
+          "answers": ["Gustav Vasa", "Olof Skötkonung", "Karl XII"],
+          "correct": 1
+        },
+        {
+          "id": 3,
+          "text": "Vilket år dog Gustav Vasa?",
+          "answers": ["1544", "1560", "1601"],
+          "correct": 1
+        },
+        {
+          "id": 4,
+          "text": "Vilket land var Sverige i krig med under stora nordiska kriget?",
+          "answers": ["Danmark", "Ryssland", "Tyskland"],
+          "correct": 1
+        }
+      ]
+    },
+    {
+      "id": "cities",
+      "title": "Svenska städer",
+      "questions": [
+  {
+    "id": 1,
+    "text": "Vilken stad är Sveriges huvudstad?",
+    "answers": ["Göteborg", "Stockholm", "Uppsala"],
+    "correct": 1
+  },
+  {
+    "id": 2,
+    "text": "Vilken stad kallas 'Lilla London'?",
+    "answers": ["Malmö", "Göteborg", "Uppsala"],
+    "correct": 1
+  },
+  {
+    "id": 3,
+    "text": "I vilken stad ligger Turning Torso?",
+    "answers": ["Stockholm", "Malmö", "Helsingborg"],
+    "correct": 1
+  },
+  {
+    "id": 4,
+    "text": "Vilken stad ligger längst norrut?",
+    "answers": ["Kiruna", "Umeå", "Luleå"],
+    "correct": 0
+  },
+  {
+    "id": 5,
+    "text": "Vilken stad är Sveriges näst största?",
+    "answers": ["Malmö", "Göteborg", "Uppsala"],
+    "correct": 1
+  }
+]
+
+    },
+    {
+      "id": "culture",
+      "title": "Svensk kultur",
+     "questions": [
+  {
+    "id": 1,
+    "text": "Vilket band kommer från Sverige?",
+    "answers": ["ABBA", "Queen", "Coldplay"],
+    "correct": 0
+  },
+  {
+    "id": 2,
+    "text": "Vad firar man på midsommar?",
+    "answers": ["Julen", "Sommarsolståndet", "Påsken"],
+    "correct": 1
+  },
+  {
+    "id": 3,
+    "text": "Vilken högtid firas den 13 december?",
+    "answers": ["Lucia", "Påsk", "Valborg"],
+    "correct": 0
+  },
+  {
+    "id": 4,
+    "text": "Vad heter Sveriges nationaldag?",
+    "answers": ["1 maj", "6 juni", "24 december"],
+    "correct": 1
+  },
+  {
+    "id": 5,
+    "text": "Vilket av dessa är en svensk maträtt?",
+    "answers": ["Sushi", "Tacos", "Köttbullar"],
+    "correct": 2
+  }
+]
+
+    }
+  ]
+}
