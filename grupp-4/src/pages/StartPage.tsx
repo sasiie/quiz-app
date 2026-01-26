@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { fetchQuestions } from "../data/fetchQuestions";
+// Här är startsidan
 
-// Startsidan
 type Props = {
   onStart: () => void;
 };
