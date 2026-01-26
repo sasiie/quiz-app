@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { fetchQuestions } from "../data/fetchQuestions";
+import "../App.css";
 // Här är startsidan
 
 type Props = {
