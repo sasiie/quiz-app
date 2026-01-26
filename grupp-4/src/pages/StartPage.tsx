@@ -1,29 +1,29 @@
-import { useEffect } from "react";
-import { fetchQuestions } from "../data/fetchQuestions";
+import { useNavigate } from "react-router-dom";
+import type { QuizCategory } from "../data/questions";
 import "../App.css";
 
-
 type Props = {
-  onStart: () => void;
+  quizes: QuizCategory[];
 };
 
-export function StartPage({ onStart }: Props) {
+export function StartPage({ quizes }: Props) {
+  const navigate = useNavigate();
   //  useEffect ska ligga INUTI funktionen
-  useEffect(() => {
-    fetchQuestions().then((data) => {
-      console.log("QUIZ DATA:", data);
-    });
-  }, []);
 
   // return kommer efter useEffect
   return (
     <div className="screen">
       <div className="phone">
         <h1 className="title">Quiz App</h1>
-
-        <button className="primary-button" onClick={onStart}>
-          Starta Quiz
-        </button>
+        {quizes?.map((quiz) => (
+          <button
+            key={quiz.id}
+            className="primary-button"
+            onClick={() => navigate(`/quiz/${quiz.id}`)}
+          >
+            Starta Quiz {quiz.title}
+          </button>
+        ))}
       </div>
     </div>
   );
