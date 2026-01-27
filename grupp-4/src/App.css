@@ -12,7 +12,7 @@
 
 /* ser ut som en riktig app */
 .phone {
-  width: 100%;             /*fyller mobilen*/           
+  width: 100%;                      
   max-width: 430px;        /* max mobilbredd */
   min-height: 85vh;        /* nästan hel skärm */
   padding: 28px 22px;      /* mellanrum */
@@ -79,4 +79,32 @@
     height: 60px;
     font-size: 17px;
   }
+}
+/* Vanlig svarsknapp (innan man valt) */
+.answer-button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition: transform 120ms ease;
+}
+
+/* Tryck-effekt */
+.answer-button:active {
+  transform: translateY(1px);
+}
+
+/* RÄTT svar */
+.answer-button.correct {
+  background: #22c55e; /* grön */
+  color: #052e16;
+}
+
+/* FEL svar */
+.answer-button.wrong {
+  background: #ef4444; /* röd */
+  color: #450a0a;
 }
