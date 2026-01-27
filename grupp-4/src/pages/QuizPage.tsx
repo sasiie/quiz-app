@@ -9,11 +9,18 @@ type Props = {
   onFinish: (score: number) => void;
 };
 
-export function QuizPage({ quizes, onFinish, categoryIndex = 0 }: Props) {
+export function QuizPage({ quizes, onFinish }: Props) {
   const { quizId } = useParams<{ quizId: string }>();
   const navigate = useNavigate();
 
-  const questions: Question[] = quizes?.[categoryIndex].questions;
+  const quiz = quizes.find((q) => q.id === quizId);
+  if (!quiz) return <p>Quizet hittades inte</p>;
+  const questions = quiz.questions;
+
+  if (!questions || questions.length === 0) {
+    return <p style={{ padding: 16 }}>Det finns inga frågor i detta quiz.</p>;
+  }
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedOptionId, setSelectedOptionId] = useState<string | null>(null);
   const [isLocked, setIsLocked] = useState(false);

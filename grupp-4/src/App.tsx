@@ -16,7 +16,7 @@ function App() {
 
   useEffect(() => {
     fetchQuestions()
-      .then((data) => setQuizes(data?.categories))
+      .then(setQuizes)
       .catch(() => setError("Kunde inte ladda"))
       .finally(() => setLoading(false));
   }, []);

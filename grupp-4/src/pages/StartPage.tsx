@@ -8,9 +8,7 @@ type Props = {
 
 export function StartPage({ quizes }: Props) {
   const navigate = useNavigate();
-  //  useEffect ska ligga INUTI funktionen
 
-  // return kommer efter useEffect
   return (
     <div className="screen">
       <div className="phone">
