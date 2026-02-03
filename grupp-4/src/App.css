@@ -1,42 +1,82 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* =========================
+   LAYOUT (Mobile first)
+   ========================= */
+
+/* fyller hela skärmen*/
+.screen {
+  min-height: 100vh;       /* hela skärmens höjd */
+  padding: 20px;           /* lite mellanrum i  mobilen */
+  display: grid;
+  place-items: center;     /* mitten av skärmen */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* ser ut som en riktig app */
+.phone {
+  width: 100%;             /*fyller mobilen*/           
+  max-width: 430px;        /* max mobilbredd */
+  min-height: 85vh;        /* nästan hel skärm */
+  padding: 28px 22px;      /* mellanrum */
+
+  display: grid;
+  align-content: center;   /* centrerar innehåll vertikalt */
+  gap: 22px;               /* mellanrum mellan saker */
+
+  border-radius: var(--r-lg); /*rundade hörn */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+
+@media (min-width: 900px) {
+  .screen {
+    padding: 32px;          /* mer mellanrum */
   }
-  to {
-    transform: rotate(360deg);
+
+  .phone {
+    min-height: 70vh;  /* lite kortare */
+    padding: 34px 28px; /* mer mellanrum*/
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+
+/* Titel "Quiz App" */
+.title {
+  margin: 0;
+  text-align: center;  /* mitten */
+  font-size: 28px;        /* mobilstorlek */
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+/* Lila knapp som i figma */
+.primary-button {
+  width: 100%;   /*hela bredden */
+  height: 56px;           /* lätt att trycka */
+  border: 0;             
+  border-radius: 14px;    /* rundad */
+  cursor: pointer;
+
+  background: var(--purple);
+  color: var(--text);
+  font-weight: 600;
+  font-size: 16px;
+
+  /* mjukare känsla */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  transition: transform 120ms ease, background 120ms ease;
+}
+
+/* liten tryck-effekt*/
+.primary-button:active {
+  transform: translateY(1px);
+}
+
+/* större text och knapp på desktop */
+@media (min-width: 900px) {
+  .title {
+    font-size: 32px;
   }
-}
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  .primary-button {
+    height: 60px;
+    font-size: 17px;
+  }
 }
