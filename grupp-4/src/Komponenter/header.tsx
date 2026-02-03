@@ -1,26 +1,16 @@
 type Props = {
   title: string;
-  onBack?: () => void;
+  leftSlot?: React.ReactNode;
 };
 
-export function Header({ title, onBack }: Props) {
+export function Header({ title, leftSlot }: Props) {
   return (
     <header className="header">
-      {onBack ? (
-        <button
-          className="back-button"
-          onClick={onBack}
-          aria-label="Tillbaka"
-        >
-          ←
-        </button>
-      ) : (
-        <span />
-      )}
+      {leftSlot ?? <span />}
 
       <h1 className="header-title">{title}</h1>
 
-      <span />                            
+      <span />
     </header>
   );
 }

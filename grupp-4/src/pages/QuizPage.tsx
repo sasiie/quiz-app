@@ -1,8 +1,11 @@
 import { useState } from "react";
-import type { Question } from "../types/quiz";
+//(import type { Question } from "../types/quiz";
 import type { QuizCategory } from "../data/questions";
 import { getHighscore, setHighscore } from "../data/storage";
 import { useParams, useNavigate } from "react-router-dom";
+import { Header } from "../Komponenter/header";
+import { Button } from "../Komponenter/Button";
+
 
 type Props = {
   quizes: QuizCategory[];
@@ -56,6 +59,18 @@ export function QuizPage({ quizes, onFinish }: Props) {
 
   return (
     <main style={{ padding: 16, maxWidth: 520, margin: "0 auto" }}>
+     
+
+    <Header
+      title="Detaljsida"
+      leftSlot={
+        <div onClick={() => navigate(-1)}>
+          <Button>←</Button>
+        </div>
+      }
+    />
+  ;
+
       <div
         style={{
           display: "flex",
